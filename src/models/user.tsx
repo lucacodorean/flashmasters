@@ -7,6 +7,8 @@ export interface User {
     attributes: {
         name:       string;
         email:      string;
+        description: string;
+        icon:       string;
         customerId: string;
         createdAt: Date;
         updatedAt: Date;
@@ -27,13 +29,15 @@ export const mapToUserModel = (data: any): User => ({
     attributes: {
         name:       data.attributes.name,
         email:      data.attributes.email,
+        icon:       data.attributes.icon,
+        description: data.attributes.description ? data.attributes.description : "Încă nu ți-ai setat o descriere.",
         customerId: data.attributes.customer_id,
         createdAt: new Date(data.attributes.created_at),
         updatedAt: new Date(data.attributes.updated_at),
     },
     relationships: {
         role:    data.relationships.role ? mapToRoleModel(data.relationships.role) : null,
-        bundles: data.relationships.bundles ? data.relationships.bundles.data.map(mapToBundleModel) : [],
+        bundles: data.relationships.bundles ? data.relationships.bundles.map(mapToBundleModel) : [],
     },
     links: data.links,
 });

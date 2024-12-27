@@ -25,15 +25,15 @@ export const mapToQuestionModel = (data: any): Question => ({
     type: data.type,
     id:     data.id,
     attributes: {
-        text:             data.attributes.name,
+        text:             data.attributes.text,
         correct:          data.attributes.correct,
         answers:          data.attributes.answers,
         createdAt: new Date(data.attributes.created_at),
         updatedAt: new Date(data.attributes.updated_at),
     },
     relationships: {
-        cards:     data.relationships.cards     ? data.relationships.cards.data.map(mapToCardModel) : [],
-        bundles:   data.relationships.bundles   ? data.relationships.bundles.data.map(mapToBundleModel) : [],
+        cards:     data.relationships.cards     ? data.relationships.cards.map(mapToCardModel) : [],
+        bundles:   data.relationships.bundles   ? data.relationships.bundles.map(mapToBundleModel) : [],
     },
     links: data.links,
 });

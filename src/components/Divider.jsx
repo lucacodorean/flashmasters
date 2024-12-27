@@ -1,10 +1,10 @@
-import React from "react";
+import "react";
 
-const Divider = () => {
+const Divider = ({text}) => {
     return (
         <div className="flex items-center my-6">
             <hr className="flex-grow border-gray-300"/>
-            <span className="mx-3 text-gray-400">OR</span>
+            {text ? <span className="mx-3 text-gray-400">{text}</span> : null}
             <hr className="flex-grow border-gray-300"/>
         </div>
     );

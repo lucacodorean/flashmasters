@@ -9,7 +9,6 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const {user, setUser} = useUser();
 
     const login = async (e) => {
@@ -37,7 +36,7 @@ const Login = () => {
     };
 
     return (
-        <div className="flex justify-center items-center mt-[10vh] md:mt-[33vh]">
+        <div className="flex justify-center items-center mt-[10vh] md:mt-[33vh] max-w-screen-xl mx-auto p-8 text-center">
             <form className="bg-white rounded-xl w-[90%] max-w-md" onSubmit={login}>
                 <h1 className="text-center text-3xl font-semibold text-gray-800 w-[10%] mb-7">Welcome to flashMasters</h1>
                 <br/>
@@ -85,12 +84,10 @@ const Login = () => {
 
                 <div className="text-center mt-4 text-sm text-gray-500">
                     Nu ai un cont?{" "}
-                    <a href="#" className="text-purple-600 font-medium hover:underline">
-                        Crează unul
-                    </a>
+                    <a href="/register" className="text-purple-600 font-medium hover:underline">Crează unul</a>
                 </div>
 
-                <Divider/>
+                <Divider text="SAU"/>
 
                 <div className="space-y-4">
                     <button
