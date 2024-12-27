@@ -1,5 +1,4 @@
 import  'react';
-import Footer from "../components/Footer.jsx";
 import {useNavigate} from "react-router-dom";
 
 const TermsAndConditions = () => {

@@ -64,8 +64,8 @@ const Profile = () => {
                     <button className="text-white text-2xl" onClick={() => navigate(-1)}>&#8249;</button>
                 </div>
                 <div className="flex flex-col items-center pt-12">
-                    <img src={user.attributes.icon ? user.attributes.icon : "../../public/vite.svg"}
-                         className="w-12 h-12  border-1 border-white" alt={"Avatar"}/>
+                    <img src={user.attributes.avatar ? user.attributes.avatar : "../../public/vite.svg"}
+                         className="w-24 h-24 rounded-full border-1 shadow-xl border-white" alt={"Avatar"}/>
                     <h1 className="mt-4 text-xl font-semibold">{user.attributes.name}</h1>
                     <h1 className="text-gray-300">{user.relationships.role.name}</h1>
                 </div>

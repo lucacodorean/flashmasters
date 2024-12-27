@@ -12,12 +12,14 @@ import Register from "./pages/Register.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import Bundle from "./pages/Bundle.jsx";
 import HomePage from "./pages/Homepage.jsx";
+import GoogleLoginBuffer from "./pages/GoogleLoginBuffer.jsx";
 
 export default function App() {
     return (
         <Routes>
                 <Route path="/register"             element={<AuthRedirect><Register/></AuthRedirect>}/>
                 <Route path="/login"                element={<AuthRedirect><Login/></AuthRedirect>}/>
+                <Route path="/google"               element={<AuthRedirect><GoogleLoginBuffer/></AuthRedirect>}/>
                 <Route path="/dashboard"            element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
                 <Route path="/profile"              element={<PrivateRoute><Profile/></PrivateRoute>}/>
                 <Route path="/bundle/:id/buy"       element={<PrivateRoute><BundleDetails/></PrivateRoute>}/>

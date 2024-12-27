@@ -8,7 +8,7 @@ export interface User {
         name:       string;
         email:      string;
         description: string;
-        icon:       string;
+        avatar:      string;
         customerId: string;
         createdAt: Date;
         updatedAt: Date;
@@ -29,7 +29,7 @@ export const mapToUserModel = (data: any): User => ({
     attributes: {
         name:       data.attributes.name,
         email:      data.attributes.email,
-        icon:       data.attributes.icon,
+        avatar:       data.attributes.avatar,
         description: data.attributes.description ? data.attributes.description : "Încă nu ți-ai setat o descriere.",
         customerId: data.attributes.customer_id,
         createdAt: new Date(data.attributes.created_at),

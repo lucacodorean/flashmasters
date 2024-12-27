@@ -35,6 +35,21 @@ const Login = () => {
         }
     };
 
+    const redirectGoogle = async () => {
+        try {
+            const response = await api.get("/api/auth/google_oauth2/redirect");
+            if(response.status === 200) window.location.href = response.data.message;
+        } catch (e) { console.log(e); }
+    }
+
+    const executeGoogleLoginRedirect = async () => {
+        await redirectGoogle().then(res => res.json()).then((data) => {
+            setUser(data);
+            sessionStorage.setItem("user", JSON.stringify(data))
+            window.location.href = "/dashboard";
+        });
+    };
+
     return (
         <div className="flex justify-center items-center mt-[10vh] md:mt-[33vh] max-w-screen-xl mx-auto p-8 text-center">
             <form className="bg-white rounded-xl w-[90%] max-w-md" onSubmit={login}>
@@ -91,7 +106,8 @@ const Login = () => {
 
                 <div className="space-y-4">
                     <button
-                        className="flex justify-center bg-white text-black border border-gray-300 rounded-md py-2 w-full hover:bg-gray-100 focus:outline-none">
+                        className="flex justify-center bg-white text-black border border-gray-300 rounded-md py-2 w-full hover:bg-gray-100 focus:outline-none"
+                        onClick={() => executeGoogleLoginRedirect()}>
                         <svg className="h-8 w-8 text-red-500" width="24" height="24" viewBox="0 0 24 24 mr-5"
                              strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round"
                              strokeLinejoin="round">

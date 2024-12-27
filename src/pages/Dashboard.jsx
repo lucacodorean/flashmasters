@@ -12,7 +12,8 @@ const Dashboard = () => {
 
             <div className="flex pt-16 pb-16 px-6">
                 <div className="mb-4">
-                    <img src="../../public/vite.svg" className="w-12 h-12  border-1 border-white" alt={"Avatar"}/>
+                    <img src={user.attributes.avatar ? user.attributes.avatar : "../../public/vite.svg"}
+                         className="w-16 h-16 border-1 rounded-full shadow-xl border-white" alt={"Avatar"}/>
                 </div>
                 <div className="ml-3">
                     <p className="text-xl font-normal">Bine ai revenit, </p>

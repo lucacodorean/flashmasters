@@ -24,7 +24,7 @@ const Register = () => {
                 email,
                 password,
                 password_confirmation: passwordConfirmation,
-                role_id: "rol_TBzuRQiUjMZGE22gJIFs"
+                role_id: "rol_3loCLpmWLpHcMRlHraeK"
             });
 
             const data = response.data;
