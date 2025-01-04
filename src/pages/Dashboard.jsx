@@ -2,10 +2,12 @@ import "react";
 import Footer from "../components/Footer.jsx";
 import BundleGrid from "../components/BundleGrid.jsx";
 import {useUser} from "../contexts/userContext.tsx";
+import {useState} from "react";
 
 const Dashboard = () => {
 
     const {user} = useUser();
+    const [bundleFilter, setBundleFilter] = useState("");
 
     return (
         <div className="bg-purple-900 h-60 text-white" style={{ borderBottomLeftRadius: "30px", borderBottomRightRadius: "30px" }}>
@@ -33,6 +35,8 @@ const Dashboard = () => {
                             type="text"
                             placeholder="Search Here"
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            value={bundleFilter}
+                            onChange={(e) => { setBundleFilter(e.target.value)}}
                         />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +56,7 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <BundleGrid/>
+            <BundleGrid bundleFilter={bundleFilter}/>
             <Footer/>
         </div>
     );

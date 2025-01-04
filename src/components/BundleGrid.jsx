@@ -5,7 +5,7 @@ import {useUser} from "../contexts/userContext.tsx";
 import {useNavigate} from "react-router-dom";
 import Spinner from "./Spinner.jsx";
 
-const BundleGrid = () => {
+const BundleGrid = (props) => {
 
     const {user, setUser}= useUser();
     const [bundles, setBundles] = useState(null);
@@ -18,7 +18,7 @@ const BundleGrid = () => {
         setViewAllPressed(true);
 
         try {
-            const response = await api.get("/api/v1/bundles");
+            const response = await api.get(props.bundleFilter ? `/api/v1/bundles/?name=${props.bundleFilter}` : "/api/v1/bundles");
             await delay(2000);
 
             setBundles(response.data);
